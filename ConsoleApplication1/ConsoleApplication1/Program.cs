@@ -19,9 +19,28 @@ namespace ConsoleApplication1
             }
             return sum / numbers.Length;
         }
+
+        // Static method to find the maximum value in an array of integers
+        public static int FindMaximum(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+            {
+                throw new ArgumentException("Array cannot be null or empty", nameof(numbers));
+            }
+
+            int max = numbers[0];
+            foreach (int number in numbers)
+            {
+                if (number > max)
+                {
+                    max = number;
+                }
+            }
+            return max;
+        }
     }
 
-    internal static class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -31,8 +50,11 @@ namespace ConsoleApplication1
             {
                 // Calculate the average of the array
                 double average = MathUtilities.CalculateAverage(myNumbers);
-                // Output the average
                 Console.WriteLine($"The average is: {average}");
+
+                // Find the maximum value in the array
+                int max = MathUtilities.FindMaximum(myNumbers);
+                Console.WriteLine($"The maximum value is: {max}");
             }
             catch (ArgumentException ex)
             {
@@ -41,8 +63,3 @@ namespace ConsoleApplication1
         }
     }
 }
-
-
-//Modification 1
-//Modification 2
-//Modification 3
