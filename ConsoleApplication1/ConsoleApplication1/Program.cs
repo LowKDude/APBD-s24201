@@ -29,7 +29,7 @@ namespace ConsoleApplication1
             }
 
             int max = numbers[0];
-            foreach (int number in numbers)
+            foreach (int n in numbers)
             {
                 if (number > max)
                 {
